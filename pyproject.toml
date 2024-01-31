@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "todo-list-fast-api"
+version = "0.1.0"
+description = "TODO_LIST"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.109.0"
+uvicorn = "^0.26.0"
+sqlalchemy = "^1.4.4"
+alembic = "^1.13.1"
+pydantic-settings = "^2.1.0"
+psycopg2-binary = "^2.9.9"
+asyncpg = "^0.29.0"
+databases = "^0.8.0"
+python-dotenv = "^1.0.0"
+autoflake = "^2.2.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

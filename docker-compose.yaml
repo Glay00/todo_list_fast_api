@@ -1,0 +1,34 @@
+version: "3.4"
+
+services:
+  postgres_todo:
+    restart: always
+    image: postgres:15.3-alpine
+    container_name: database_todo
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_HOST: db
+      POSTGRES_DB: todo
+    ports:
+      - "6432:5432"
+    volumes:
+      - postgres-data-todo:/var/lib/postgresql/data
+
+  web:
+    build: .
+    #    command: uvicorn src.app:app --host 0.0.0.0 --port 8000 --reload
+    container_name: todo_app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres_todo
+    env_file:
+      - .env
+    environment:
+      DB_HOST: postgres_todo
+      DB_PORT: 5432
+
+volumes:
+  postgres-data-todo:

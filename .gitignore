@@ -1,0 +1,16 @@
+# Переменные окружения
+.env
+.venv
+# Виртуальное окружение Python
+venv
+env
+
+# Временные файлы Python и Django
+__pycache__
+*.py[cod]
+*$py.class
+
+# IDE
+.fleet
+.idea
+.vscode
