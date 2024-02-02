@@ -19,10 +19,11 @@ RUN pip install "poetry-core" "poetry==${POETRY_VERSION}"
 
 COPY ./src ./src
 
-COPY ./poetry.lock ./pyproject.toml /opt/
+COPY ./poetry.lock ./pyproject.toml ./alembic.ini /opt/app/
+COPY /docker/ /opt/app/docker/
 
 RUN poetry install --no-root
 
 ENV PYTHONPATH "${PYTHONPATH}:/opt/app"
 
-ENTRYPOINT uvicorn src.app:app --host 0.0.0.0 --port 8000 --reload
+RUN chmod a+x docker/*.sh

@@ -1,10 +1,11 @@
-from sqlalchemy import create_engine
-from src.db.models import Base
 from alembic import context
+from sqlalchemy import create_engine
 from src.core.settings import get_settings
 
+from src.db.models import Base
 
 config = context.config
+
 target_metadata = Base.metadata
 
 
