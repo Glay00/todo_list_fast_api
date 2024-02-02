@@ -27,3 +27,5 @@ RUN poetry install --no-root
 ENV PYTHONPATH "${PYTHONPATH}:/opt/app"
 
 RUN chmod a+x docker/*.sh
+
+ENTRYPOINT ["entrypoint.sh"]
